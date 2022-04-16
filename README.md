@@ -1,6 +1,6 @@
 # Project Argus
 
-## Objectives
+## UI Objectives
 
 - Simplistic
 - Cleam
