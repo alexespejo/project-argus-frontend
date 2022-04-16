@@ -41,7 +41,7 @@ The camera and web app backends are built with Flask and Firebase using the Fire
 
 IOT: Raspberry PI, Raspberry PI Camera V2, Python, Flask, OpenCV
 
-Frontend: HTML, CSS, JavaScript, SCSS
+Frontend: React, Bootstrap, SCSS
 
 BACKEND
 Flask:
@@ -50,7 +50,13 @@ Used to build out a web server that stores the REST APIs for the camera and app 
 Firebase (Cloud Firestore)
 Nonrelational real time databased that stores the user and camera data
 
----
+## React Releated Libs
+
+$ yarn add react-bootstrap
+
+$ yarn add firebase
+
+$ yarn add react-router-dom
 
 ### Current State
 
