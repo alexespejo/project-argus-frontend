@@ -1,8 +1,10 @@
 # Project Argus
 
-## Frontend Code
+## Objectives
 
-https://github.com/alexespejo/project-argus-frontend
+- Simplistic
+- Cleam
+- User Friendly
 
 ## What is it
 
@@ -59,8 +61,6 @@ $ yarn add firebase
 $ yarn add react-router-dom
 
 ### Current State
-
-The baseline demo functionality of the app is near completion in vanilla HTML, CSS, and JavaScript but will be soon migrated to React and Boostrap for a more concise and better development experience for adding more features.
 
 The facial recognition software on a Raspberry PI and camera has been tested for proof of feasibility, but has yet to be properly implemented and tested.
 
