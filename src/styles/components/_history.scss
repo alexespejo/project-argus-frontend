@@ -1,0 +1,53 @@
+// history log styles
+#history-heading {
+  display: flex;
+  align-items: center;
+  span {
+    padding: 0 0.4rem;
+    font-size: 0.7em;
+    color: rgb(170, 170, 170);
+  }
+}
+.log {
+  display: flex;
+  flex-direction: column;
+  // box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.log-child {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background: white;
+  &:first-child {
+    border-radius: 1rem 1rem 0 0;
+  }
+  &:last-child {
+    border-radius: 0 0 1rem 1rem;
+  }
+  &:not(:first-child) {
+    border-top: solid rgba(100, 100, 111, 0.3) 1px;
+  }
+  div:first-child {
+    padding-right: 0.5rem;
+  }
+  div:last-child {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+  }
+  div:last-child > *:last-child {
+    font-size: 0.8rem;
+    align-self: flex-end;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}

@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Project Argus
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Frontend Code
 
-## Available Scripts
+https://github.com/alexespejo/project-argus-frontend
 
-In the project directory, you can run:
+## What is it
 
-### `npm start`
+Argus is a facial recognition camera and smart door lock accompanied by a dedicated web application. Combining my knowledge of IOT and web development.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Purpose
 
-### `npm test`
+It is not an uncommon mistake to forget or misplace a key whether it be your dorm, house or car. Forgetting such a small yet essential object can be an inconvenience and a hastle. Argus provides a multifacited security and convient solution to an issue that plagues millions. Forgetfullness...
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+### Use
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The camera itself would be a Raspberry PI and Camera Module mounted by the door. The camera will act as a running video stream till a person's face is presented in front of the camera. The camera will identify the person by their name or "unkown" and store that data to the database. If the person is not "unkown" they will be sent a phone notifcation on their app that will verify their access to the door and if they confirm the door will unlock.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The web app would offer additional insight to Argus' view. A Ring inspired design will allow the user to view the live video stream from the camera(s). The app would present a collection of time series data of every instance a person is at the door and/or opens the door. The user will be able to customize aspects of the camera itself, such as time intervals in between scanning (in the instance there are multiple people approaching the door).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The app will also allow admin users to grant people access to the smart door allocate app privelleges to specific users. As well as delete and update users as the admin sees fit.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technology overview
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To build out the camera I used the Python OpenCV and face recognition libraries along side a Raspberry PI and the Raspberry PI Camera V2.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+!currently
+The web application is being built using vanilla HTML but I soon hope to implement React/React Native into the final project
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The camera and web app backends are built with Flask and Firebase using the Firestore as the main database
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Technologies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+IOT: Raspberry PI, Raspberry PI Camera V2, Python, Flask, OpenCV
 
-### Code Splitting
+Frontend: HTML, CSS, JavaScript, SCSS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+BACKEND
+Flask:
+Used to build out a web server that stores the REST APIs for the camera and app to communicate with the database
 
-### Analyzing the Bundle Size
+Firebase (Cloud Firestore)
+Nonrelational real time databased that stores the user and camera data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+### Current State
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The baseline demo functionality of the app is near completion in vanilla HTML, CSS, and JavaScript but will be soon migrated to React and Boostrap for a more concise and better development experience for adding more features.
 
-### Advanced Configuration
+The facial recognition software on a Raspberry PI and camera has been tested for proof of feasibility, but has yet to be properly implemented and tested.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+All testing and development of both the app and the camera is being preformed on my own person operating system
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Futures
 
-### `npm run build` fails to minify
+-Plan to fully create the app in React.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-Improve face recogntion software with machine learning tools like Tensorflow or pyTorch
+
+-Bring in D3 for presenting analytics to the app
+
+-Implement Firebase Cloud Functions to the backend code
+
+---
+
+## Doc references
+
+[Firebase](https://firebase.google.com/docs/firestore)
+
+[face recognition](https://github.com/ageitgey/face_recognition)
+
+[OpenCV](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html)
+
+[Flask](https://flask.palletsprojects.com/en/2.1.x/)

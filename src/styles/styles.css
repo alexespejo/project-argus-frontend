@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+.sidebar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  overflow: none;
+  background: white;
+  border-right: #e9ecef 1px solid;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  height: 0;
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sidebar a {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  color: black;
+}
+
+.sidebar a:last-child {
+  margin-top: auto;
+  padding: 1rem;
+}
+
+.sidebar button {
+  padding: 0;
+  border: none;
+  background: inherit;
+}
+
+.sidebar button span {
+  border-radius: 5px;
+  padding: 0.1rem 0.3rem;
+}
+
+.open-sidebar {
+  cursor: pointer;
+}
+
+.open-sidebar .hamburger-menue {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5rem;
+}
+
+.open-sidebar .hamburger-menue div {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  width: 1.5rem;
+  height: 2px;
+  margin: 2px;
+}
+
+.mask {
+  position: fixed;
+  z-index: 0;
+  background-color: rgba(157, 157, 157, 0.3);
+  width: 100%;
+  height: 100vh;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #mySidebar {
+    position: relative;
+    width: 10rem;
+    margin: 0;
+    height: 100vh;
+  }
+  #mySidebar .closebtn {
+    display: none;
+  }
+  #open-sidebar {
+    display: none;
+  }
+}
+
+#history-heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#history-heading span {
+  padding: 0 0.4rem;
+  font-size: 0.7em;
+  color: #aaaaaa;
+}
+
+.log {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.log h1,
+.log h2,
+.log h3,
+.log h4,
+.log h5,
+.log h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.log-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: white;
+}
+
+.log-child:first-child {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.log-child:last-child {
+  border-radius: 0 0 1rem 1rem;
+}
+
+.log-child:not(:first-child) {
+  border-top: solid rgba(100, 100, 111, 0.3) 1px;
+}
+
+.log-child div:first-child {
+  padding-right: 0.5rem;
+}
+
+.log-child div:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: auto;
+}
+
+.log-child div:last-child > *:last-child {
+  font-size: 0.8rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+select {
+  cursor: pointer;
+}
+
+form {
+  padding: 0.5rem;
+}
+
+form button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+body {
+  font-family: "Varela Round", sans-serif;
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /* Hide scrollbar for IE, Edge and Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+h5 {
+  padding-top: 1rem;
+}
+
+#video-footage {
+  padding: 0;
+}
+
+#video-footage img {
+  height: 20rem;
+  width: 100%;
+}
+
+@media screen and (min-width: 576px) {
+  #video-footage {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 35rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #video-footage {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #home-page {
+    width: 30rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #home-page {
+    width: 20rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #home-page {
+    width: 100%;
+  }
+}
+
+.ae-rounded {
+  border-radius: 1rem;
+}
+
+.ae-spinnder {
+  width: 3rem;
+  height: 3rem;
+}
+
+.last-seen {
+  margin-left: auto;
+  font-size: 0.8rem;
+}
+
+@media screen and (min-width: 576px) {
+  .last-seen {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .last-seen {
+    font-size: 0.8em;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

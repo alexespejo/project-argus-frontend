@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import "./components/sidebar";
+@import "./components/history";
+@import "./components/form";
+body {
+  font-family: "Varela Round", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  & {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+h5 {
+  padding-top: 1rem;
+}
+#video-footage {
+  padding: 0;
+
+  img {
+    height: 20rem;
+    width: 100%;
+  }
+  @media screen and (min-width: 576px) {
+    height: fit-content;
+    width: 35rem;
+  }
+  @media screen and (min-width: 1200px) {
+    height: fit-content;
+    width: 100%;
+  }
+}
+#home-page {
+  @media screen and (min-width: 768px) {
+    width: 30rem;
+  }
+  @media screen and (min-width: 992px) {
+    width: 20rem;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 100%;
+  }
+}
+.ae-rounded {
+  border-radius: 1rem;
+}
+.ae-spinnder {
+  width: 3rem;
+  height: 3rem;
+}
+.last-seen {
+  margin-left: auto;
+  font-size: 0.8rem;
+  @media screen and (min-width: 576px) {
+    font-size: 1rem;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 0.8em;
+  }
+}
