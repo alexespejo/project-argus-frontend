@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <div className="d-flex flex-column flex-xl-row">
+      <div className="d-flex flex-column flex-lg-row">
         <NavBar />
 
         <div className="d-flex flex-column container-fluid">

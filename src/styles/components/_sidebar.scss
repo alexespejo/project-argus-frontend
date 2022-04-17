@@ -77,10 +77,11 @@
     font-size: 18px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 992px) {
   #mySidebar {
-    position: relative;
-    width: 10rem;
+    position: sticky;
+    top: 0;
+    text-align: center;
     margin: 0;
     height: 100vh;
     .closebtn {
@@ -89,5 +90,10 @@
   }
   #open-sidebar {
     display: none;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #mySidebar {
+    text-align: initial;
   }
 }

@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../argus-config";
 import { collection, getDocs } from "firebase/firestore";
-import { Accordion, Button } from "react-bootstrap";
+import { Accordion } from "react-bootstrap";
+import {
+  BsHouseDoor,
+  BsClockHistory,
+  BsCameraVideo,
+  BsGear,
+  BsPersonCircle,
+  BsPerson,
+} from "react-icons/bs";
 function HamburgerMenue({ onClick }) {
   return (
     <div className="open-sidebar p-2 bg-white" onClick={onClick}>
@@ -60,7 +68,7 @@ function NavBar() {
 
   useEffect(() => {
     window.addEventListener("resize", detectSize);
-    if (window.innerWidth >= 1200) {
+    if (window.innerWidth >= 992) {
       setShow(false);
     }
     const getUsers = async () => {
@@ -74,10 +82,16 @@ function NavBar() {
     };
   }, [windowDimenion, show]);
 
+  const iconStyle = () => {
+    if (window.innerWidth >= 922 && window.innerWidth <= 1200) {
+      return { fontSize: "1.5rem", width: "1.5rem" };
+    }
+    return { fontSize: "1rem" };
+  };
   return (
     <div className="sticky-top">
       {" "}
-      {window.innerWidth <= 1200 ? (
+      {window.innerWidth <= 992 ? (
         <>
           <HamburgerMenue
             onClick={() => {
@@ -88,26 +102,45 @@ function NavBar() {
       ) : null}
       <div
         id="mySidebar"
-        className="sidebar "
+        className="sidebar"
         style={
-          show || window.innerWidth >= 1200
-            ? { width: "10rem" }
+          show || window.innerWidth >= 1200 || window.innerWidth <= 540
+            ? { width: "12rem" }
+            : window.innerWidth >= 992
+            ? { width: "fit-content" }
             : { width: "0" }
         }
       >
-        {window.innerWidth <= 1200 ? (
+        {window.innerWidth <= 992 ? (
           <HamburgerMenue
             onClick={() => {
               showMask();
             }}
           />
         ) : null}
-        <a href="/">Home</a>
-        <a href="">History</a>
-        <a href="/video">Camera</a>
-        <a href="">Configurations</a>
-        <a href="/create">Manage Profiles</a>
-        {window.innerWidth <= 1200 ? (
+        <a href="/">
+          <BsHouseDoor style={iconStyle()} />{" "}
+          <span className="d-lg-none d-xl-inline">Home</span>
+        </a>
+        <a href="/">
+          <BsClockHistory style={iconStyle()} />{" "}
+          <span className="d-lg-none d-xl-inline">History</span>
+        </a>
+        <a href="/video">
+          {" "}
+          <BsCameraVideo style={iconStyle()} />{" "}
+          <span className="d-lg-none d-xl-inline">Camera</span>
+        </a>
+        <a href="">
+          <BsGear style={iconStyle()} />{" "}
+          <span className="d-lg-none d-xl-inline">Configurations</span>
+        </a>
+        <a href="/create">
+          {" "}
+          <BsPerson style={iconStyle()} />{" "}
+          <span className="d-lg-none d-xl-inline"> Manage Profiles</span>
+        </a>
+        {window.innerWidth <= 992 ? (
           <Accordion defaultActiveKey="1">
             <Accordion.Item eventKey="0">
               <div className="d-flex override ">
