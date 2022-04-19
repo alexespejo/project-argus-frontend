@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { db } from "../argus-config";
-
 import { collection, getDocs } from "firebase/firestore";
 
 function ProfileDisplay({ date }) {

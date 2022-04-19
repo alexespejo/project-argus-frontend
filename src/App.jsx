@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import RegisterForm from "./components/RegisterForm";
 import VideoDisplay from "./components/VideoDisplay";
 import UserPage from "./pages/UserPage";
+import UploadImagePage from "./pages/UploadImagePage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProfilesPage from "./pages/ProfilesPage";
 const date = new Date();
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <Route exact path={"/profiles/:id"}>
               <UserPage />
+            </Route>
+            <Route exact path={"/upload"}>
+              <UploadImagePage />
             </Route>
           </Switch>
         </div>
