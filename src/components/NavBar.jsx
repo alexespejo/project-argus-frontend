@@ -35,8 +35,8 @@ function NavBar() {
               .map((user) => {
                 return (
                   <a
-                    className="p-2 border-top "
-                    href={`/${user.id}}`}
+                    className="p-2 border-top members-links"
+                    href={`/profiles/${user.id}`}
                     key={user.id}
                   >
                     {user.name}
@@ -86,7 +86,7 @@ function NavBar() {
     if (window.innerWidth >= 922 && window.innerWidth <= 1200) {
       return { fontSize: "1.5rem", width: "1.5rem" };
     }
-    return { fontSize: "1rem" };
+    return { fontSize: "1rem", marginBottom: "0.3rem" };
   };
   return (
     <div className="sticky-top">
@@ -104,7 +104,7 @@ function NavBar() {
         id="mySidebar"
         className="sidebar"
         style={
-          show || window.innerWidth >= 1200 || window.innerWidth <= 540
+          show || window.innerWidth >= 1200
             ? { width: "12rem" }
             : window.innerWidth >= 992
             ? { width: "fit-content" }
@@ -119,41 +119,43 @@ function NavBar() {
           />
         ) : null}
         <a href="/">
-          <BsHouseDoor style={iconStyle()} />{" "}
-          <span className="d-lg-none d-xl-inline">Home</span>
+          <BsHouseDoor style={iconStyle()} /> <span className="">Home</span>
         </a>
         <a href="/">
           <BsClockHistory style={iconStyle()} />{" "}
-          <span className="d-lg-none d-xl-inline">History</span>
+          <span className="">History</span>
         </a>
         <a href="/video">
           {" "}
-          <BsCameraVideo style={iconStyle()} />{" "}
-          <span className="d-lg-none d-xl-inline">Camera</span>
+          <BsCameraVideo style={iconStyle()} /> <span className="">Camera</span>
         </a>
         <a href="">
           <BsGear style={iconStyle()} />{" "}
-          <span className="d-lg-none d-xl-inline">Configurations</span>
+          <span className="">Configurations</span>
         </a>
         <a href="/create">
           {" "}
           <BsPerson style={iconStyle()} />{" "}
-          <span className="d-lg-none d-xl-inline"> Manage Profiles</span>
+          <span className=""> Manage Profiles</span>
         </a>
+
         {window.innerWidth <= 992 ? (
           <Accordion defaultActiveKey="1">
             <Accordion.Item eventKey="0">
               <div className="d-flex override ">
-                <a href="/profiles">Profiles</a>
+                <a href="/profiles" style={{ paddingRight: "1rem" }}>
+                  <BsPersonCircle style={iconStyle()} /> <span>Profiles</span>{" "}
+                </a>
                 <Accordion.Button
                   style={{
                     boxShadow: "none",
                     borderColor: "black",
+                    marginLeft: "auto",
                     paddingRight: "2rem",
-                    background: "white",
                     color: "black",
+                    width: "40%",
+                    border: "none",
                   }}
-                  onClick={() => console.log("hello world")}
                 ></Accordion.Button>
               </div>
               <Accordion.Body style={{ padding: "0" }}>
@@ -163,11 +165,15 @@ function NavBar() {
           </Accordion>
         ) : (
           <>
-            <a href="/profiles">Profiles</a>
+            <a href="/profiles">
+              <BsPersonCircle style={iconStyle()} /> <span>Profiles</span>{" "}
+            </a>
             <MemberLinks />
           </>
         )}
-        <a href="">Settings</a>
+        <a href="" id="settings-icon">
+          Settings
+        </a>
       </div>
       {show ? (
         <div
@@ -176,7 +182,9 @@ function NavBar() {
             showMask();
           }}
         ></div>
-      ) : null}
+      ) : (
+        ""
+      )}
     </div>
   );
 }

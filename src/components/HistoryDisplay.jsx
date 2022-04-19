@@ -48,7 +48,9 @@ function HistoryDisplay({ date }) {
                 {" "}
                 <HistoryChildrenDisplay id={log.id} log={log} date={date} />
               </div>
-            ) : null}
+            ) : (
+              ""
+            )}
           </>
         );
       })}

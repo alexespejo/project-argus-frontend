@@ -64,7 +64,7 @@ function historyChildrenDisplay({ id, log, date }) {
       </div>
       <div>
         {" "}
-        <h5> {log.history[0].name}: </h5>
+        <span className="h5"> {log.history[0].name}: </span>
       </div>
       <div>
         <span>

@@ -3,7 +3,7 @@ import { Carousel } from "react-bootstrap";
 function VideoDisplay() {
   const [cameras, setCameras] = useState([
     "http://192.168.254.127:5000/video_feed",
-    "http://192.168.254.125:5001/video_feed",
+    // "http://192.168.254.125:5001/video_feed",
   ]);
 
   return (

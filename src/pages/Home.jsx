@@ -6,8 +6,7 @@ import RegisterForm from "../components/RegisterForm";
 import DeleteForm from "../components/DeleteForm";
 import UpdateForm from "../components/UpdateForm";
 import "bootstrap/dist/css/bootstrap.min.css";
-const date = new Date();
-function HomePage() {
+function HomePage({ date }) {
   return (
     <div id="home-page d-flex flex-column ">
       <div className="d-flex flex-column flex-xl-row mb-xl-2">

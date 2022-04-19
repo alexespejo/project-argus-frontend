@@ -24,6 +24,9 @@ function DeleteForm() {
         Delete a Member
       </label>
       <select id="deleteMember" className="mb-3 form-select">
+        <option value="" selected disabled>
+          Slect a Member
+        </option>
         {members.length > 0
           ? members
               .sort((a, b) => (a.access > b.access ? 1 : -1))
