@@ -133,7 +133,7 @@ function NavBar() {
           <BsGear style={iconStyle()} />{" "}
           <span className="">Configurations</span>
         </a>
-        <a href="/create">
+        <a href="/configure">
           {" "}
           <BsPerson style={iconStyle()} />{" "}
           <span className=""> Manage Profiles</span>

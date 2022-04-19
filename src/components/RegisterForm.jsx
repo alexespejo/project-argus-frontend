@@ -1,6 +1,8 @@
-import React from "react";
+import { useState } from "react";
 
 function CreateMembers() {
+  const [name, setName] = useState(null);
+
   return (
     <div className="container-sm shadow-sm ae-rounded">
       <h5>Create Profile</h5>
@@ -45,7 +47,7 @@ function CreateMembers() {
           </option>
         </select>
 
-        <button type="submit" class=" btn btn-primary">
+        <button type="submit" class="btn btn-primary">
           Submit
         </button>
       </form>

@@ -8,6 +8,7 @@ import UserPage from "./pages/UserPage";
 import UploadImagePage from "./pages/UploadImagePage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProfilesPage from "./pages/ProfilesPage";
+import ManageProfiles from "./pages/ManageProfiles";
 const date = new Date();
 
 function App() {
@@ -21,12 +22,13 @@ function App() {
             <Route exact path={"/"}>
               <Home date={date} />
             </Route>
-            <Route exact path={"/create"}>
-              <RegisterForm />
+            <Route exact path={"/configure"}>
+              <ManageProfiles />
             </Route>
             <Route path={"/video"}>
               <VideoDisplay />
             </Route>
+
             <Route exact path={"/profiles/"}>
               <ProfilesPage date={date} />
             </Route>

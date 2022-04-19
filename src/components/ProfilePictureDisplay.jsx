@@ -2,7 +2,7 @@ import { useState } from "react";
 import { storage } from "../argus-config";
 import { ref, getDownloadURL } from "firebase/storage";
 
-function ProfilePictureDisplay({ name, id }) {
+function ProfilePictureDisplay({ name, id, square = "10rem" }) {
   const [image, setImage] = useState(null);
   getDownloadURL(ref(storage, `${id}.jpeg`)).then((url) => {
     setImage(url);
@@ -12,10 +12,11 @@ function ProfilePictureDisplay({ name, id }) {
       src={image}
       alt={name}
       style={{
-        width: "10rem",
-        height: "10rem",
+        width: square,
+        height: square,
         borderRadius: "50%",
         objectFit: "cover",
+        filter: "blur(1px)",
       }}
     />
   );

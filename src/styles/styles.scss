@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
-@import "./components/sidebar";
-@import "./components/history";
-@import "./components/form";
+@import "./sass/sidebar";
+@import "./sass/history";
+@import "./sass/form";
 body {
   font-family: "Varela Round", sans-serif;
   padding: 0;
@@ -14,7 +14,7 @@ body {
   /* Hide scrollbar for IE, Edge and Firefox */
   & {
     -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none; /* irefox */
   }
 }
 h5 {

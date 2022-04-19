@@ -40,24 +40,26 @@ function HistoryDisplay({ date }) {
         }-${date.getDate()}-${date.getFullYear()}`}</span>
       </h5>
 
-      {history.map((log, i) => {
-        return (
-          <>
-            {i === 0 ? (
-              <div className="log ae-rounded container-fluid mb-3 shadow-sm">
-                {" "}
-                <HistoryChildrenDisplay id={log.id} log={log} date={date} />
-              </div>
-            ) : (
-              ""
-            )}
-          </>
-        );
-      })}
+      {history
+        .sort((a, b) => (a.date > b.date ? -1 : 1))
+        .map((log, i) => {
+          return (
+            <>
+              {i === 0 ? (
+                <div className="log ae-rounded container-fluid mb-3 shadow-sm">
+                  {" "}
+                  <HistoryChildrenDisplay id={log.id} log={log} date={date} />
+                </div>
+              ) : (
+                ""
+              )}
+            </>
+          );
+        })}
 
       <div className="log container-fluid ae-rounded shadow-sm">
         {history
-          .sort((a, b) => (a.date > b.date ? -1 : 1))
+
           .filter((log) => {
             if (log.id === "most_recent") {
               console.log("found it");
@@ -73,6 +75,7 @@ function HistoryDisplay({ date }) {
             }
             return false;
           })
+          .sort((a, b) => (a.date > b.date ? -1 : 1))
           .splice(1, 4)
           .map((log) => {
             if (log.id !== "most_recent") {
