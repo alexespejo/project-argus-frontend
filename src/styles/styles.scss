@@ -2,6 +2,7 @@
 @import "./sass/sidebar";
 @import "./sass/history";
 @import "./sass/form";
+@import "./sass/video";
 body {
   font-family: "Varela Round", sans-serif;
   padding: 0;
@@ -20,25 +21,24 @@ body {
 h5 {
   padding-top: 1rem;
 }
-#video-footage {
-  padding: 0;
+.link-style {
+  text-decoration: none;
+  color: initial;
+}
+.scroll-hide {
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
-  img {
-    height: 20rem;
-    width: 100%;
-  }
-  @media screen and (min-width: 576px) {
-    height: fit-content;
-    width: 35rem;
-  }
-  @media screen and (min-width: 1200px) {
-    height: fit-content;
-    width: 100%;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  & {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* irefox */
   }
 }
 #home-page {
   @media screen and (min-width: 768px) {
-    width: 30rem;
+    width: 25rem;
   }
   @media screen and (min-width: 992px) {
     width: 20rem;

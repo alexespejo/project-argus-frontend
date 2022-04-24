@@ -13,7 +13,7 @@ import {
 function HamburgerMenue({ onClick }) {
   return (
     <div className="open-sidebar p-2 bg-white" onClick={onClick}>
-      <div className="hamburger-menue ae-rounded">
+      <div className="hamburger-menue ae-rounded ">
         <div></div>
         <div></div>
         <div></div>
@@ -47,15 +47,7 @@ function NavBar() {
       </div>
     );
   }
-  const [windowDimenion, detectHW] = useState({
-    winWidth: window.innerWidth,
-  });
-
-  const detectSize = () => {
-    detectHW({
-      winWidth: window.innerWidth,
-    });
-  };
+  const [windowDimenion, detectHW] = useState(window.innerWidth);
 
   const showMask = () => {
     setShow(!show);
@@ -67,8 +59,8 @@ function NavBar() {
   };
 
   useEffect(() => {
-    window.addEventListener("resize", detectSize);
-    if (window.innerWidth >= 992) {
+    window.addEventListener("resize", () => detectHW(window.innerWidth));
+    if (windowDimenion >= 992) {
       setShow(false);
     }
     const getUsers = async () => {
@@ -78,12 +70,12 @@ function NavBar() {
 
     getUsers();
     return () => {
-      window.removeEventListener("resize", detectSize);
+      window.removeEventListener("resize", () => detectHW(window.innerWidth));
     };
   }, [windowDimenion, show]);
 
   const iconStyle = () => {
-    if (window.innerWidth >= 922 && window.innerWidth <= 1200) {
+    if (windowDimenion >= 922 && windowDimenion <= 1200) {
       return { fontSize: "1.5rem", width: "1.5rem" };
     }
     return { fontSize: "1rem", marginBottom: "0.3rem" };
@@ -91,32 +83,38 @@ function NavBar() {
   return (
     <div className="sticky-top">
       {" "}
-      {window.innerWidth <= 992 ? (
-        <>
-          <HamburgerMenue
-            onClick={() => {
-              showMask();
-            }}
-          />
-        </>
-      ) : null}
+      <div className="d-flex">
+        <div className="w-50">
+          {windowDimenion <= 992 ? (
+            <>
+              <HamburgerMenue
+                onClick={() => {
+                  showMask();
+                }}
+              />
+            </>
+          ) : null}
+        </div>
+      </div>
       <div
         id="mySidebar"
         className="sidebar"
         style={
-          show || window.innerWidth >= 1200
+          show || windowDimenion >= 1200
             ? { width: "12rem" }
-            : window.innerWidth >= 992
+            : windowDimenion >= 992
             ? { width: "fit-content" }
             : { width: "0" }
         }
       >
-        {window.innerWidth <= 992 ? (
-          <HamburgerMenue
-            onClick={() => {
-              showMask();
-            }}
-          />
+        {windowDimenion < 992 ? (
+          <>
+            <HamburgerMenue
+              onClick={() => {
+                showMask();
+              }}
+            />
+          </>
         ) : null}
         <a href="/">
           <BsHouseDoor style={iconStyle()} /> <span className="">Home</span>
@@ -139,7 +137,7 @@ function NavBar() {
           <span className=""> Manage Profiles</span>
         </a>
 
-        {window.innerWidth <= 992 ? (
+        {windowDimenion <= 992 ? (
           <Accordion defaultActiveKey="1">
             <Accordion.Item eventKey="0">
               <div className="d-flex override ">
