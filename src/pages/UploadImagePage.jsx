@@ -4,6 +4,7 @@ import { storage, db } from "../argus-config";
 
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, getDocs } from "firebase/firestore";
+
 function UploadImagePage() {
   const [profile, setProfile] = useState(null);
   const [identities, setIds] = useState([]);
@@ -49,7 +50,6 @@ function UploadImagePage() {
           setProfile(e.target.value);
         }}
       >
-        <option value="cock">Cock</option>
         {identities.map((users) => {
           return <option value={users.id}>{users.name}</option>;
         })}

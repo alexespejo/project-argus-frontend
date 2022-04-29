@@ -1,7 +1,10 @@
 import React from "react";
 import Home from "./pages/Home";
+import History from "./pages/History";
 import NavBar from "./components/NavBar";
 import VideoDisplay from "./components/VideoDisplay";
+import RegisterForm from "./components/RegisterForm";
+import DeleteForm from "./components/DeleteForm";
 import UserPage from "./pages/UserPage";
 import UploadImagePage from "./pages/UploadImagePage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -21,9 +24,7 @@ function App() {
             bottom: "0",
             right: "0",
           }}
-        >
-          <Key />
-        </div>
+        ></div>
         <div className="d-flex flex-column container-fluid">
           <Switch>
             <Route exact path={"/"}>
@@ -43,6 +44,9 @@ function App() {
             </Route>
             <Route exact path={"/upload"}>
               <UploadImagePage />
+            </Route>
+            <Route exact path={"/history"}>
+              <History date={date} />
             </Route>
           </Switch>
         </div>

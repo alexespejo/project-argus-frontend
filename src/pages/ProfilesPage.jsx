@@ -7,6 +7,8 @@ import {
   BsFillPersonCheckFill,
   BsPersonFill,
   BsPeopleFill,
+  BsLock,
+  BsUnlock,
 } from "react-icons/bs";
 function ProfilesPage({ date }) {
   const [members, setMembers] = useState([]);
@@ -126,6 +128,17 @@ function ProfilesPage({ date }) {
                                 className="d-flex flex-grow-1 "
                                 style={{ fontSize: "0.8rem" }}
                               >
+                                <span className="me-1">
+                                  {log.history[0].locked ? (
+                                    <>
+                                      <BsUnlock />
+                                    </>
+                                  ) : (
+                                    <>
+                                      <BsLock />
+                                    </>
+                                  )}
+                                </span>
                                 {log.history[0].timeStamp.month +
                                   log.history[0].timeStamp.year +
                                   log.history[0].timeStamp.day ===

@@ -27,7 +27,7 @@ function UpdateForm() {
     <div className="container-sm shadow-sm ae-rounded">
       <h5>Update Profile</h5>
       <form
-        action="http://192.168.254.125:5001/update"
+        action="http://172.17.83.140:5001/update"
         method="POST"
         enctype="multipart/form-data"
       >

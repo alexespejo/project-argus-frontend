@@ -1,13 +1,40 @@
 import { useState } from "react";
+import { storage, db } from "../argus-config";
+
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { collection, getDocs } from "firebase/firestore";
 
 function CreateMembers() {
-  const [name, setName] = useState(null);
+  const [image, setImage] = useState(null);
+
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  };
+  const handleSubmit = () => {
+    const imageRef = ref(
+      storage,
+      `${document.getElementById("RegisterName").value}${
+        document.getElementById("RegisterAccess").value
+      }.jpeg`
+    );
+    uploadBytes(imageRef, image)
+      .then(() => {
+        getDownloadURL(imageRef).catch((err) => {
+          console.log(err.message);
+        });
+        setImage(null);
+      })
+      .catch((err) => console.log(err.message));
+  };
+  const usersCollectionRef = collection(db, "members");
 
   return (
     <div className="container-sm shadow-sm ae-rounded">
       <h5>Create Profile</h5>
       <form
-        action="http://192.168.254.125:5001/upload"
+        action="http://172.17.83.140:5001/upload"
         method="POST"
         enctype="multipart/form-data"
         className="d-flex flex-column"
@@ -21,6 +48,7 @@ function CreateMembers() {
             name="file"
             type="file"
             id="formFile"
+            onChange={handleImageChange}
             required
           />
         </div>
@@ -47,7 +75,7 @@ function CreateMembers() {
           </option>
         </select>
 
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" onClick={handleSubmit}>
           Submit
         </button>
       </form>

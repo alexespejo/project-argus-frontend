@@ -22,7 +22,7 @@ function HistoryDisplay({ date }) {
 
   return (
     <div className="container-sm">
-      <a href="/history" className="link-style">
+      <a href="/history" className="link-style ">
         <h5 id="history-heading">
           <svg
             xmlns="http://www.w3.org/2000/svg"

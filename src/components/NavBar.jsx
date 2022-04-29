@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Key from "../components/Key";
 import { db } from "../argus-config";
 import { collection, getDocs } from "firebase/firestore";
 import { Accordion } from "react-bootstrap";
@@ -83,18 +84,19 @@ function NavBar() {
   return (
     <div className="sticky-top">
       {" "}
-      <div className="d-flex">
-        <div className="w-50">
-          {windowDimenion <= 992 ? (
-            <>
+      <div className="d-inline">
+        {windowDimenion <= 992 ? (
+          <div className="d-flex">
+            <div className="flex-grow-1">
               <HamburgerMenue
                 onClick={() => {
                   showMask();
                 }}
               />
-            </>
-          ) : null}
-        </div>
+            </div>
+            <Key />
+          </div>
+        ) : null}
       </div>
       <div
         id="mySidebar"
@@ -116,10 +118,13 @@ function NavBar() {
             />
           </>
         ) : null}
+        <div className="d-none d-lg-block text-center mb-xl-4 ">
+          <Key />
+        </div>
         <a href="/">
           <BsHouseDoor style={iconStyle()} /> <span className="">Home</span>
         </a>
-        <a href="/">
+        <a href="/history">
           <BsClockHistory style={iconStyle()} />{" "}
           <span className="">History</span>
         </a>
