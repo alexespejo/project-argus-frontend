@@ -47,44 +47,60 @@ function History({ date }) {
               console.log("found it");
               return;
             }
-            if (filterHistory === "1") {
-              if (
-                log.history[0].timeStamp.month / 30 +
-                  log.history[0].timeStamp.year +
-                  log.history[0].timeStamp.day <=
-                1 + date.getMonth() + date.getFullYear() + date.getDate()
-              ) {
-                return true;
-              }
-            } else if (filterHistory === "2") {
-              if (
-                log.history[0].timeStamp.month / 30 +
-                  log.history[0].timeStamp.year +
-                  log.history[0].timeStamp.day ===
-                1 + date.getMonth() + date.getFullYear() + date.getDate()
-              ) {
-                return true;
-              }
-            } else if (filterHistory === "3") {
-              if (
-                log.history[0].timeStamp.month / 30 +
-                  log.history[0].timeStamp.year +
-                  log.history[0].timeStamp.day ===
-                1 + date.getMonth() + date.getFullYear() + date.getDate() - 1
-              ) {
-                return true;
-              }
-            } else if (filterHistory === "4") {
-              if (
-                log.history[0].timeStamp.month / 30 +
-                  log.history[0].timeStamp.year +
-                  log.history[0].timeStamp.day >=
-                1 + date.getMonth() + date.getFullYear() + date.getDate() - 7
-              ) {
-                return true;
-              }
+            switch (filterHistory) {
+              case "0":
+                if (
+                  log.history[0].timeStamp.month / 30 +
+                    log.history[0].timeStamp.year +
+                    log.history[0].timeStamp.day <=
+                  1 + date.getMonth() + date.getFullYear() + date.getDate()
+                ) {
+                  return true;
+                }
+                break;
+              case "1":
+                if (
+                  log.history[0].timeStamp.month / 30 +
+                    log.history[0].timeStamp.year +
+                    log.history[0].timeStamp.day ===
+                  1 + date.getMonth() + date.getFullYear() + date.getDate()
+                ) {
+                  return true;
+                }
+                break;
+              case "2":
+                if (
+                  log.history[0].timeStamp.month / 30 +
+                    log.history[0].timeStamp.year +
+                    log.history[0].timeStamp.day ===
+                  1 + date.getMonth() + date.getFullYear() + date.getDate()
+                ) {
+                  return true;
+                }
+                break;
+              case "3":
+                if (
+                  log.history[0].timeStamp.month / 30 +
+                    log.history[0].timeStamp.year +
+                    log.history[0].timeStamp.day ===
+                  1 + date.getMonth() + date.getFullYear() + date.getDate() - 1
+                ) {
+                  return true;
+                }
+                break;
+              case "4":
+                if (
+                  log.history[0].timeStamp.month / 30 +
+                    log.history[0].timeStamp.year +
+                    log.history[0].timeStamp.day >=
+                  1 + date.getMonth() + date.getFullYear() + date.getDate() - 7
+                ) {
+                  return true;
+                }
+                break;
+              default:
+                return false;
             }
-            return false;
           })
           .sort((a, b) => (a.date > b.date ? -1 : 1))
           .map((log) => {

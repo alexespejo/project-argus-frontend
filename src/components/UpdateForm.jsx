@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../argus-config";
 import { collection, getDocs, doc, getDoc } from "firebase/firestore";
-function UpdateForm() {
+function UpdateForm({ server }) {
   const [members, setMembers] = useState([]);
   const [selected, setSelected] = useState(0);
 
@@ -21,13 +21,14 @@ function UpdateForm() {
 
   useEffect(() => {
     getUsers();
+    console.log(selected);
   }, [selectMember]);
 
   return (
     <div className="container-sm shadow-sm ae-rounded">
       <h5>Update Profile</h5>
       <form
-        action="http://172.17.83.140:5001/update"
+        action={`${server}/update`}
         method="POST"
         enctype="multipart/form-data"
       >

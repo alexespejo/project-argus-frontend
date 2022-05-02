@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Carousel } from "react-bootstrap";
-function VideoDisplay() {
-  const [cameras, setCameras] = useState([
-    // "http://192.168.254.127:5000/video_feed",
-    // "http://192.168.254.125:5001/video_feed",
-    "http://172.17.83.140:5001/video_feed",
-  ]);
+
+function VideoDisplay({ server }) {
+  const [cameras, setCameras] = useState([server]);
+  console.log(server);
   return (
     <div className="container-sm" id="video-footage">
       <a href="/video">
@@ -41,7 +39,11 @@ function VideoDisplay() {
           })}
         </Carousel>
       ) : (
-        <img className="img-fluid ae-rounded" src={cameras[0]} alt={`Main`} />
+        <img
+          className="img-fluid ae-rounded"
+          src={`${cameras[0]}/video_feed`}
+          alt={`Main`}
+        />
       )}
     </div>
   );

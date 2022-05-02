@@ -3,13 +3,14 @@ import Home from "./pages/Home";
 import History from "./pages/History";
 import NavBar from "./components/NavBar";
 import VideoDisplay from "./components/VideoDisplay";
-import RegisterForm from "./components/RegisterForm";
-import DeleteForm from "./components/DeleteForm";
 import UserPage from "./pages/UserPage";
 import UploadImagePage from "./pages/UploadImagePage";
+import UpdateUsersPage from "./pages/UpdateUsersPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProfilesPage from "./pages/ProfilesPage";
 import ManageProfiles from "./pages/ManageProfiles";
+import { server } from "./server";
+
 import Key from "./components/Key";
 const date = new Date();
 
@@ -28,13 +29,13 @@ function App() {
         <div className="d-flex flex-column container-fluid">
           <Switch>
             <Route exact path={"/"}>
-              <Home date={date} />
+              <Home date={date} server={server} />
             </Route>
             <Route exact path={"/configure"}>
-              <ManageProfiles />
+              <ManageProfiles server={server} />
             </Route>
             <Route path={"/video"}>
-              <VideoDisplay />
+              <VideoDisplay server={server} />
             </Route>
             <Route exact path={"/profiles/"}>
               <ProfilesPage date={date} />
@@ -47,6 +48,9 @@ function App() {
             </Route>
             <Route exact path={"/history"}>
               <History date={date} />
+            </Route>
+            <Route exact path={"/cock"}>
+              <UpdateUsersPage date={date} />
             </Route>
           </Switch>
         </div>

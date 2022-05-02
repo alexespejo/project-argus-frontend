@@ -5,13 +5,13 @@ import DeleteForm from "../components/DeleteForm";
 import UpdateForm from "../components/UpdateForm";
 const date = new Date();
 
-function ManageProfiles() {
+function ManageProfiles({ server }) {
   return (
     <div>
       <ProfileDisplay date={date} />
-      <RegisterForm />
+      <RegisterForm server={server} />
       <DeleteForm />
-      <UpdateForm />
+      <UpdateForm server={server} />
     </div>
   );
 }

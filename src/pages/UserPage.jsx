@@ -9,6 +9,7 @@ import {
   BsPersonFill,
   BsPeopleFill,
 } from "react-icons/bs";
+
 function UserPage({ date }) {
   const [windowDimenion, detectHW] = useState(window.innerWidth);
   let tracker = 0;
@@ -26,7 +27,6 @@ function UserPage({ date }) {
       const docSnap = await getDoc(docRef);
       const historRef = await getDocs(hisotryCollectionRef);
       setHistory(historRef.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-
       setMember(docSnap.data());
     };
 
@@ -113,42 +113,40 @@ function UserPage({ date }) {
             .sort((a, b) => (a.date > b.date ? -1 : 1))
 
             .map((log) => {
-              if (log.id !== "most_recent") {
-                if (
-                  tracker !==
+              if (
+                tracker !==
+                log.history[0].timeStamp.month +
+                  log.history[0].timeStamp.year +
+                  log.history[0].timeStamp.day
+              ) {
+                tracker =
                   log.history[0].timeStamp.month +
-                    log.history[0].timeStamp.year +
-                    log.history[0].timeStamp.day
-                ) {
-                  tracker =
-                    log.history[0].timeStamp.month +
-                    log.history[0].timeStamp.year +
-                    log.history[0].timeStamp.day;
-                  return (
-                    <>
-                      <span className="shadow bg-primary text-light py-1 px-2">
-                        {log.history[0].timeStamp.month / 30}-
-                        {log.history[0].timeStamp.day}-
-                        {log.history[0].timeStamp.year}{" "}
-                      </span>
-                      <HistoryChildrenDisplay
-                        id={log.id}
-                        log={log}
-                        date={date}
-                        lock={true}
-                      />
-                    </>
-                  );
-                }
+                  log.history[0].timeStamp.year +
+                  log.history[0].timeStamp.day;
                 return (
-                  <HistoryChildrenDisplay
-                    id={log.id}
-                    log={log}
-                    date={date}
-                    lock={true}
-                  />
+                  <>
+                    <span className="shadow bg-primary text-light py-1 px-2">
+                      {log.history[0].timeStamp.month / 30}-
+                      {log.history[0].timeStamp.day}-
+                      {log.history[0].timeStamp.year}{" "}
+                    </span>
+                    <HistoryChildrenDisplay
+                      id={log.id}
+                      log={log}
+                      date={date}
+                      lock={true}
+                    />
+                  </>
                 );
               }
+              return (
+                <HistoryChildrenDisplay
+                  id={log.id}
+                  log={log}
+                  date={date}
+                  lock={true}
+                />
+              );
             })}
         </div>
       </div>

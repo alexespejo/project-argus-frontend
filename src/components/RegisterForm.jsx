@@ -4,7 +4,7 @@ import { storage, db } from "../argus-config";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, getDocs } from "firebase/firestore";
 
-function CreateMembers() {
+function CreateMembers({ server }) {
   const [image, setImage] = useState(null);
 
   const handleImageChange = (e) => {
@@ -34,7 +34,7 @@ function CreateMembers() {
     <div className="container-sm shadow-sm ae-rounded">
       <h5>Create Profile</h5>
       <form
-        action="http://172.17.83.140:5001/upload"
+        action={`${server}/upload`}
         method="POST"
         enctype="multipart/form-data"
         className="d-flex flex-column"
