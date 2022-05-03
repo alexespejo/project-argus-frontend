@@ -22,7 +22,7 @@ function HamburgerMenue({ onClick }) {
     </div>
   );
 }
-function NavBar() {
+function NavBar({ server }) {
   const [show, setShow] = useState(false);
   const [members, setMembers] = useState([]);
   const usersCollectionRef = collection(db, "members");
@@ -118,8 +118,8 @@ function NavBar() {
             />
           </>
         ) : null}
-        <div className="d-none d-lg-block text-center mb-xl-4 ">
-          <Key />
+        <div className="d-none d-lg-block text-center m-0 mb-xl-4 ">
+          <Key server={server} />
         </div>
         <a href="/">
           <BsHouseDoor style={iconStyle()} /> <span className="">Home</span>
@@ -131,10 +131,6 @@ function NavBar() {
         <a href="/video">
           {" "}
           <BsCameraVideo style={iconStyle()} /> <span className="">Camera</span>
-        </a>
-        <a href="">
-          <BsGear style={iconStyle()} />{" "}
-          <span className="">Configurations</span>
         </a>
         <a href="/configure">
           {" "}

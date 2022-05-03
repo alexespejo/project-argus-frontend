@@ -5,20 +5,18 @@ import NavBar from "./components/NavBar";
 import VideoDisplay from "./components/VideoDisplay";
 import UserPage from "./pages/UserPage";
 import UploadImagePage from "./pages/UploadImagePage";
-import UpdateUsersPage from "./pages/UpdateUsersPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProfilesPage from "./pages/ProfilesPage";
 import ManageProfiles from "./pages/ManageProfiles";
 import { server } from "./server";
 
-import Key from "./components/Key";
 const date = new Date();
 
 function App() {
   return (
     <Router>
       <div className="d-flex flex-column flex-lg-row">
-        <NavBar />
+        <NavBar server={server} />
         <div
           style={{
             position: "fixed",
@@ -48,9 +46,6 @@ function App() {
             </Route>
             <Route exact path={"/history"}>
               <History date={date} />
-            </Route>
-            <Route exact path={"/cock"}>
-              <UpdateUsersPage date={date} />
             </Route>
           </Switch>
         </div>
