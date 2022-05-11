@@ -14,8 +14,6 @@
   top: 0;
   left: 0;
   overflow-x: hidden;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
   overflow: none;
   background: white;
   border-right: #e9ecef 1px solid;
@@ -25,15 +23,11 @@
   list-style-type: none;
   height: 0;
   width: 100%;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
 }
 
 .sidebar a {
   padding: 0.5rem 1rem;
   text-decoration: none;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
   color: black;
 }
 
@@ -124,8 +118,6 @@
 }
 
 .open-sidebar .hamburger-menue div {
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 1rem;
   width: 1.5rem;
@@ -361,6 +353,10 @@ h5 {
   #home-page {
     width: 100%;
   }
+}
+
+input {
+  cursor: pointer;
 }
 
 .ae-rounded {

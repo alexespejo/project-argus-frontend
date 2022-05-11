@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { storage, db } from "../argus-config";
 
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, getDocs } from "firebase/firestore";
 
-function CreateMembers({ server }) {
+function RegisterForm({ server, update }) {
   const [image, setImage] = useState(null);
 
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
       setImage(e.target.files[0]);
+      update();
     }
   };
   const handleSubmit = () => {
@@ -29,7 +30,6 @@ function CreateMembers({ server }) {
       .catch((err) => console.log(err.message));
   };
   const usersCollectionRef = collection(db, "members");
-
   return (
     <div className="container-sm shadow-sm ae-rounded">
       <h5>Create Profile</h5>
@@ -83,4 +83,4 @@ function CreateMembers({ server }) {
   );
 }
 
-export default CreateMembers;
+export default RegisterForm;

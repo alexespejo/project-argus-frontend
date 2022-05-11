@@ -3,21 +3,21 @@ import { db } from "../argus-config";
 import { collection, getDocs } from "firebase/firestore";
 import ProfilePictureDisplay from "./ProfilePictureDisplay";
 import LoadingSpinner from "./LoadingSpinner";
+
 import {
   BsFillPersonCheckFill,
   BsPersonFill,
   BsPeopleFill,
 } from "react-icons/bs";
-function ProfileDisplay({ date }) {
+
+function ProfileDisplay({ date, update }) {
   const [members, setMembers] = useState([]);
   const [windowDimenion, detectHW] = useState(window.innerWidth);
-
   const usersCollectionRef = collection(db, "members");
 
   const listenMembers = async () => {
     return await getDocs(usersCollectionRef);
   };
-
   useEffect(() => {
     window.addEventListener("resize", () => detectHW(window.innerWidth));
 

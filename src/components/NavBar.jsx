@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Key from "../components/Key";
 import { db } from "../argus-config";
 import { collection, getDocs } from "firebase/firestore";
 import { Accordion } from "react-bootstrap";
@@ -94,7 +93,6 @@ function NavBar({ server }) {
                 }}
               />
             </div>
-            <Key />
           </div>
         ) : null}
       </div>
@@ -118,10 +116,8 @@ function NavBar({ server }) {
             />
           </>
         ) : null}
-        <div className="d-none d-lg-block text-center m-0 mb-xl-4 ">
-          <Key server={server} />
-        </div>
-        <a href="/">
+        <div className="d-none d-lg-block text-center m-0 mb-xl-4 "></div>
+        <a href={`/home/`}>
           <BsHouseDoor style={iconStyle()} /> <span className="">Home</span>
         </a>
         <a href="/history">
@@ -134,8 +130,7 @@ function NavBar({ server }) {
         </a>
         <a href="/configure">
           {" "}
-          <BsPerson style={iconStyle()} />{" "}
-          <span className=""> Manage Profiles</span>
+          <BsPerson style={iconStyle()} /> <span className=""> Manage </span>
         </a>
 
         {windowDimenion <= 992 ? (
@@ -170,7 +165,7 @@ function NavBar({ server }) {
             <MemberLinks />
           </>
         )}
-        <a href="" id="settings-icon">
+        <a href="/settings" id="settings-icon">
           Settings
         </a>
       </div>

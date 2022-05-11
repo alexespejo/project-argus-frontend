@@ -8,7 +8,7 @@
   top: 0;
   left: 0;
   overflow-x: hidden;
-  transition: 0.2s;
+  // transition: 0.2s;
   overflow: none;
   background: white;
   border-right: #e9ecef 1px solid;
@@ -16,12 +16,12 @@
     list-style-type: none;
     height: 0;
     width: 100%;
-    transition: 0.3s;
+    // transition: 0.3s;
   }
   a {
     padding: 0.5rem 1rem;
     text-decoration: none;
-    transition: 0.2s;
+    // transition: 0.2s;
     color: black;
     @media screen and (min-width: 992px) {
       display: flex;
@@ -77,7 +77,7 @@
     padding: 0.5rem;
 
     div {
-      transition: 0.2s;
+      // transition: 0.2s;
       background-color: rgba(0, 0, 0, 0.5);
       border-radius: 1rem;
       width: 1.5rem;

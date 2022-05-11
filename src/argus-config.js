@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore";
 import { getStorage } from "firebase/storage";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAK0toJ7D9_Jlt00PDemj16hi4g33-3Diw",
   authDomain: "fir-py-c779c.firebaseapp.com",
