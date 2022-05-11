@@ -4,8 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-server.js*
-argus-config*
+src/server.js*
+src/argus-config*
 # testing
 /coverage
 
