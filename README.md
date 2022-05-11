@@ -1,5 +1,15 @@
 # Project Argus
 
+### Issues / uncompleted aspects
+
+- No proper login page
+- Create special access for specific users
+- Fix routing
+- No server side rendering (data takes too long to load)
+- No D3
+- Improve UI architecture
+- Improve UI components
+
 ## UI Objectives
 
 - Simplistic
