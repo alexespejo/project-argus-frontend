@@ -9,6 +9,7 @@
 - No D3
 - Improve UI architecture
 - Improve UI components
+- Camera reading intrevals do not work
 
 ## UI Objectives
 
