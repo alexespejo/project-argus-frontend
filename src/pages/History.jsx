@@ -33,8 +33,8 @@ function History({ date }) {
         className="form-select mb-3"
         onChange={handleFilter}
       >
-        <option value="1">Complete History</option>
         <option value="2">Today</option>
+        <option value="1">Complete History</option>
         <option value="3">Yesterday</option>
         <option value="4">Past 7 Days</option>
       </select>
@@ -52,17 +52,18 @@ function History({ date }) {
                 if (
                   log.history[0].timeStamp.month / 30 +
                     log.history[0].timeStamp.year +
-                    log.history[0].timeStamp.day <=
+                    log.history[0].timeStamp.day ===
                   1 + date.getMonth() + date.getFullYear() + date.getDate()
                 ) {
                   return true;
                 }
+
                 break;
               case "1":
                 if (
                   log.history[0].timeStamp.month / 30 +
                     log.history[0].timeStamp.year +
-                    log.history[0].timeStamp.day ===
+                    log.history[0].timeStamp.day <=
                   1 + date.getMonth() + date.getFullYear() + date.getDate()
                 ) {
                   return true;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProfileDisplay from "../components/ProfileDisplay";
 import RegisterForm from "../components/RegisterForm";
 import DeleteForm from "../components/DeleteForm";
@@ -7,24 +7,31 @@ const date = new Date();
 
 function ManageProfiles({ server }) {
   const [deleteScreen, showDeleteScreen] = useState(false);
-
+  const updateScreen = () => {
+    alert("update screen");
+  };
+  useEffect(() => {}, [updateScreen]);
   return (
     <div>
-      <ProfileDisplay date={date} />
-      <button
-        className={`${!deleteScreen ? "text-danger" : "text-secondary"} btn `}
-        onClick={() => {
-          showDeleteScreen(!deleteScreen);
-        }}
-      >
-        {!deleteScreen ? "Delete" : "Return "}
-      </button>
+      <div className="d-flex flex-column">
+        <ProfileDisplay date={date} update={updateScreen} />
+        <button
+          className={`${
+            !deleteScreen ? "text-danger" : "text-secondary"
+          } btn align-self-end`}
+          onClick={() => {
+            showDeleteScreen(!deleteScreen);
+          }}
+        >
+          {!deleteScreen ? "Delete" : "Return "}
+        </button>
+      </div>
       <div className="px-lg-5">
         <div className={`${!deleteScreen ? "d-block" : "d-none"} `}>
-          <RegisterForm server={server} />
+          <RegisterForm server={server} update={updateScreen} />
         </div>
         <div className={`${deleteScreen ? "d-block" : "d-none"} `}>
-          <DeleteForm />
+          <DeleteForm update={updateScreen} />
         </div>
         <div className={`${!deleteScreen ? "d-block" : "d-none"}`}>
           <UpdateForm server={server} />
